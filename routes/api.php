@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+Route::group(['prefix' => 'users'], function () {
+    /** Для примера будем пользоваться только post */
+    Route::post('all', 'AppController@allUsers');
+//    Route::post('user', 'AppController@user');
+});
+Route::group(['prefix' => 'shops'], function () {
+    /** Для примера будем пользоваться только post */
+    Route::post('all', 'AppController@allShops'); // правильно было бы создать ShopsController
 });

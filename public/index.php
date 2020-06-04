@@ -36,7 +36,7 @@ require __DIR__.'/../vendor/autoload.php';
 */
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
-
+$helpers = require_once __DIR__.'/../app/Helpers/misc.php';
 /*
 |--------------------------------------------------------------------------
 | Run The Application

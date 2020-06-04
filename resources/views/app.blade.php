@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Tutorial Vue</title>
-
+        <script src="{{asset('js/app.js')}}{{asset_time('js/app.js')}}" defer></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{asset('css/app.css')}}{{asset_time('css/app.css')}}">
 
         <!-- Styles -->
         <style>
@@ -64,28 +66,11 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Tutorial Vuejs Vuex Route
-                </div>
-
-                <div class="links">
-                    <a href="/app">Example</a>
+        <div id="app">
+            <div class="flex-center position-ref full-height">
+                <div class="content">
+                    <router-view name="app"></router-view>
+                    <router-view></router-view>
                 </div>
             </div>
         </div>
